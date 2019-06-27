@@ -14,4 +14,4 @@ RUN apt-get update -y \
 &&  apt-get clean \
 &&  rm -vrf /var/lib/apt/lists/*
 
-USER [daemon:daemon]
+USER daemon
