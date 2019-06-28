@@ -9,11 +9,11 @@ echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backpor
 sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list && \
 apt-get -o Acquire::Check-Valid-Until=false update 
 
-RUN apt-get remove --purge openssl \
+RUN apt-get remove --purge openssl -y\
 &&  apt update -y \
 &&  apt upgrade -y \
 &&  apt dist-upgrade -y \
-&&  apt install openssl
+&&  apt install openssl -y
 
 RUN sed -i 's/jessie/stretch/g' /etc/apt/sources.list \
 &&  sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/*.list \
