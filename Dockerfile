@@ -9,9 +9,11 @@ echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backpor
 sed -i '/deb http:\/\/deb.debian.org\/debian jessie-updates main/d' /etc/apt/sources.list && \
 apt-get -o Acquire::Check-Valid-Until=false update 
 
-RUN apt-get update -y \
-&&  apt-get upgrade -y \
-&&  apt-get dist-upgrade -y 
+RUN apt-get remove --purge opensll \
+&&  apt update -y \
+&&  apt upgrade -y \
+&&  apt dist-upgrade -y \
+&&  apt install opensll
 
 RUN sed -i 's/jessie/stretch/g' /etc/apt/sources.list \
 &&  sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/*.list \
