@@ -18,10 +18,10 @@ RUN apt-get remove --purge opensll \
 RUN sed -i 's/jessie/stretch/g' /etc/apt/sources.list \
 &&  sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/*.list \
 &&  sed -i 's/archive/deb/g' /etc/apt/sources.list.d/*.list \
-&&  apt-get update -y \
-&&  apt-get upgrade -y \
-&&  apt-get dist-upgrade -y \
-&&  apt-get clean \
+&&  apt update -y \
+&&  apt upgrade -y \
+&&  apt dist-upgrade -y \
+&&  apt clean \
 &&  rm -vrf /var/lib/apt/lists/*
 
 USER daemon
