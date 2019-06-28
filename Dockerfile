@@ -15,6 +15,7 @@ RUN apt-get update -y \
 
 RUN sed -i 's/jessie/stretch/g' /etc/apt/sources.list \
 &&  sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/*.list \
+&&  sed -i 's/archive/deb/g' /etc/apt/sources.list.d/*.list \
 &&  apt-get update -y \
 &&  apt-get upgrade -y \
 &&  apt-get dist-upgrade -y \
